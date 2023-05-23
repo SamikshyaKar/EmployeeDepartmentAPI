@@ -23,17 +23,19 @@ namespace EmployeeDepartmentAPI.Models
             modelBuilder.Entity<Departments>().HasData(new Departments { DepartmentID = 4, DepartmentName = "Finance" });
 
             modelBuilder.Entity<Employee>().HasData(new Employee { DateofBirth = DateTime.Now,
-            DepartmentID =1,EmployeeID=1,FirstName="samikshya1",Lastname="Kar",Gender=Gender.Female
-            
+            DepartmentID =1,EmployeeID=1111,FirstName="samikshya1",Lastname="Kar",Gender=Gender.Female,
+            Photopath= "Img/Flower1.jpg"
+
             });
             modelBuilder.Entity<Employee>().HasData(new Employee
             {
                 DateofBirth = DateTime.Now,
                 DepartmentID = 1,
-                EmployeeID = 2,
+                EmployeeID = 1112,
                 FirstName = "samikshya2",
                 Lastname = "Kar",
-                Gender = Gender.Female
+                Gender = Gender.Female,
+                Photopath= "Img/Flower1.jpg"
 
             });
 
@@ -41,10 +43,11 @@ namespace EmployeeDepartmentAPI.Models
             {
                 DateofBirth = DateTime.Now,
                 DepartmentID = 2,
-                EmployeeID = 2,
+                EmployeeID = 1113,
                 FirstName = "samikshya3",
                 Lastname = "Kar",
-                Gender = Gender.Male
+                Gender = Gender.Male,
+                Photopath= "Img/Flower2.jpg"
 
             });
         }
