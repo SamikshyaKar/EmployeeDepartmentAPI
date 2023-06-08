@@ -12,15 +12,15 @@ namespace EmployeeDepartmentAPI.Models
         }
         public async Task<Employee> CreateEmployee(Employee employee)
         {
-          var result= await appDbContext.Employeesdb.AddAsync(employee);
-                      await appDbContext.SaveChangesAsync();
-                      return result.Entity;
+            var result = await appDbContext.Employeesdb.AddAsync(employee);
+            await appDbContext.SaveChangesAsync();
+            return result.Entity;
         }
 
         public async Task DeleteEmployee(int empid)
         {
             var result = await appDbContext.Employeesdb.FirstOrDefaultAsync(e => e.EmployeeID == empid);
-            if(result !=null)
+            if (result != null)
             {
                 appDbContext.Employeesdb.Remove(result);
                 appDbContext.SaveChanges();
@@ -29,7 +29,7 @@ namespace EmployeeDepartmentAPI.Models
 
         public async Task<IEnumerable<Employee>> GetAllEmployee()
         {
-           return await appDbContext.Employeesdb.ToListAsync();
+            return await appDbContext.Employeesdb.ToListAsync();
         }
 
         public Task<Employee> GetEmployeeByEmail(string email)
@@ -49,9 +49,24 @@ namespace EmployeeDepartmentAPI.Models
                    .FirstOrDefaultAsync(e => e.FirstName == fname);
         }
 
-        public Task<IEnumerable<Employee>> SearchEmployee(string name, Gender? gender)
+        public async Task<IEnumerable<Employee>> SearchEmployee(string name, Gender? gender)
         {
-            throw new NotImplementedException();
+            IQueryable<Employee> employeesequery = appDbContext.Employeesdb;
+            if (!string.IsNullOrEmpty(name))
+            {
+               employeesequery=employeesequery.Where(e => e.FirstName.Contains(name) || e.Lastname.Contains(name));                   
+
+            }
+
+            if(gender != null)
+            {
+                employeesequery=employeesequery.Where(e => e.Gender == gender);
+            }
+
+
+            return await employeesequery.ToListAsync();
+
+
         }
 
         public Task<Employee> UpdateEmployee(Employee employee)
