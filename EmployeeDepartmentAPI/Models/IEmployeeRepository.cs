@@ -2,8 +2,8 @@
 {
     public interface IEmployeeRepository
     {
-        Task<Employee> GetEmployeeById(int empid);
-        Task<Employee> GetEmployeeByName(string name);
+        Task<Employee?> GetEmployeeById(int empid);
+        Task<Employee?> GetEmployeeByName(string fname);
         Task<Employee> GetEmployeeByEmail(string email);
         Task<Employee> CreateEmployee(Employee employee);
         Task<Employee> UpdateEmployee(Employee employee);

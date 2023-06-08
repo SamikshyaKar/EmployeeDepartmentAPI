@@ -27,9 +27,9 @@ namespace EmployeeDepartmentAPI.Models
             }
         }
 
-        public Task<IEnumerable<Employee>> GetAllEmployee()
+        public async Task<IEnumerable<Employee>> GetAllEmployee()
         {
-            throw new NotImplementedException();
+           return await appDbContext.Employeesdb.ToListAsync();
         }
 
         public Task<Employee> GetEmployeeByEmail(string email)
@@ -37,14 +37,16 @@ namespace EmployeeDepartmentAPI.Models
             throw new NotImplementedException();
         }
 
-        public Task<Employee> GetEmployeeById(int empid)
+        public async Task<Employee?> GetEmployeeById(int empid)
         {
-            throw new NotImplementedException();
+            return await appDbContext.Employeesdb.Include(e => e.Department)
+                  .FirstOrDefaultAsync(e => e.EmployeeID == empid);
         }
 
-        public Task<Employee> GetEmployeeByName(string name)
+        public async Task<Employee?> GetEmployeeByName(string fname)
         {
-            throw new NotImplementedException();
+            return await appDbContext.Employeesdb.Include(e => e.Department)
+                   .FirstOrDefaultAsync(e => e.FirstName == fname);
         }
 
         public Task<IEnumerable<Employee>> SearchEmployee(string name, Gender? gender)
