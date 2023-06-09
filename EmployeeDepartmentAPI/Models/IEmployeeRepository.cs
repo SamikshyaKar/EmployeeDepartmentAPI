@@ -6,7 +6,7 @@
         Task<Employee?> GetEmployeeByName(string fname);
         Task<Employee> GetEmployeeByEmail(string email);
         Task<Employee> CreateEmployee(Employee employee);
-        Task<Employee> UpdateEmployee(Employee employee);
+        Task<Employee?> UpdateEmployee(Employee employee);
         Task<IEnumerable<Employee>> GetAllEmployee();
         Task DeleteEmployee(int empid);
 
