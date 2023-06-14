@@ -1,0 +1,29 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>Example of actual dom rendering</h1>
+
+    <h1>The Window Object</h1>
+    <h2>The setInterval() Method</h2>
+
+    <p id="demo"></p>
+    <p id="displayTime"></p>
+
+    <script>
+        window.setInterval(updateTime, 1000);
+        function updateTime() {
+
+            var element = "<h1> Hello World </h1>";
+
+            const d = new Date();
+            element += "<h1> Now the time is</h1>"
+            element += "<p>" + d.toLocaleTimeString() + "</p>";
+            document.getElementById("displayTime").innerHTML = element
+        }
+
+    </script>
+</body>
+
+</html>

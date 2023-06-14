@@ -47,6 +47,19 @@ namespace EmployeeDepartmentAPI.Controllers
 
 
         }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Employee>> GetEmployeeByEmpID(int id)
+        {
+            try
+            {
+                return Ok(await employeeRepository.GetEmployeeById(id));
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving from database");
+            }
+
+        }
 
 
     }
