@@ -2,7 +2,7 @@
 {
     public interface IDepartmentRepository
     {
-        Task<IEnumerable<Departments>> GetAllDepartments();
-        Task<Departments> GetDepartments(int departmentId);
+        Task<IEnumerable<Department>> GetAllDepartments();
+        Task<Department> GetDepartments(int departmentId);
     }
 }

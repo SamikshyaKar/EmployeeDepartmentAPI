@@ -12,6 +12,11 @@ namespace EmployeeDepartmentAPI.Models
         }
         public async Task<Employee> CreateEmployee(Employee employee)
         {
+            if (employee.Department != null)
+            {
+                appDbContext.Entry(employee.Department).State = EntityState.Unchanged;
+            }
+
             var result = await appDbContext.Employeesdb.AddAsync(employee);
             await appDbContext.SaveChangesAsync();
             return result.Entity;

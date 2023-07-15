@@ -10,12 +10,12 @@ namespace EmployeeDepartmentAPI.Models
         {
             this.appDbContext = appDbContext;
         }
-        public async Task<IEnumerable<Departments>> GetAllDepartments()
+        public async Task<IEnumerable<Department>> GetAllDepartments()
         {
             return await appDbContext.Departmentsdb.ToListAsync();
         }
 
-        public async Task<Departments> GetDepartments(int departmentId)
+        public async Task<Department> GetDepartments(int departmentId)
         {
             var result= await appDbContext.Departmentsdb.FirstOrDefaultAsync(d=>d.DepartmentID==departmentId);
             return result;

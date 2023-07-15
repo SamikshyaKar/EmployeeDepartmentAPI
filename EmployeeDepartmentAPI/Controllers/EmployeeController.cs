@@ -47,16 +47,66 @@ namespace EmployeeDepartmentAPI.Controllers
 
 
         }
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<Employee>> GetEmployeeByEmpID(int id)
         {
             try
             {
-                return Ok(await employeeRepository.GetEmployeeById(id));
+                //return Ok(await employeeRepository.GetEmployeeById(id));
+
+                var result = await employeeRepository.GetEmployeeById(id);
+
+                if(result != null) return Ok(result);
+
+                else
+                {
+                    return NotFound();
+                }
             }
             catch (Exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving from database");
+            }
+
+        }
+
+        [HttpGet("{empid}")]
+        public async Task<ActionResult<Employee>> GetEmployeeByEmpIDs(int empid)
+        {
+            try
+            {
+                //return Ok(await employeeRepository.GetEmployeeById(id));
+
+                var result = await employeeRepository.GetEmployeeById(empid);
+
+               if(result == null) return NotFound();
+                return result;
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving from database");
+            }
+
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult<Employee>> CreateEmployee(Employee employee)
+        {
+            try
+            {
+                if(employee == null)
+                    return BadRequest();
+                var result = await employeeRepository.CreateEmployee(employee);
+
+                return CreatedAtAction(nameof(GetEmployeeByEmpID), new { id =result.EmployeeID},result);
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error Creating Employee");
             }
 
         }
