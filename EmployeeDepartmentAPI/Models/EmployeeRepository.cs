@@ -37,9 +37,10 @@ namespace EmployeeDepartmentAPI.Models
             return await appDbContext.Employeesdb.ToListAsync();
         }
 
-        public Task<Employee> GetEmployeeByEmail(string email)
+        public async Task<Employee> GetEmployeeByEmail(string email)
         {
-            throw new NotImplementedException();
+            var result=  await appDbContext.Employeesdb.FirstOrDefaultAsync(e=>e.Email.ToLower() == email.ToLower());
+            return result;
         }
 
         public async Task<Employee?> GetEmployeeById(int empid)
@@ -84,10 +85,8 @@ namespace EmployeeDepartmentAPI.Models
                 result.Gender=employee.Gender;
                 result.DateofBirth=employee.DateofBirth;
                 result.Photopath=employee.Photopath;
-                result.DepartmentID=employee.DepartmentID;
-                result.Department=employee.Department;
-
-
+                result.DepartmentID=employee.DepartmentID;              
+                result.Email=employee.Email;
                 await appDbContext.SaveChangesAsync();
                 return result;
             }

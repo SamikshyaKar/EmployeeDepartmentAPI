@@ -4,6 +4,7 @@ using EmployeeDepartmentAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeDepartmentAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230716012725_ModifiedFirstMigration")]
+    partial class ModifiedFirstMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,7 +110,7 @@ namespace EmployeeDepartmentAPI.Migrations
                         new
                         {
                             EmployeeID = 1111,
-                            DateofBirth = new DateTime(2023, 7, 16, 7, 2, 29, 55, DateTimeKind.Local).AddTicks(2094),
+                            DateofBirth = new DateTime(2023, 7, 16, 6, 57, 25, 187, DateTimeKind.Local).AddTicks(5125),
                             DepartmentID = 1,
                             Email = "samikshya1@gmail.com",
                             FirstName = "samikshya1",
@@ -118,7 +121,7 @@ namespace EmployeeDepartmentAPI.Migrations
                         new
                         {
                             EmployeeID = 1112,
-                            DateofBirth = new DateTime(2023, 7, 16, 7, 2, 29, 55, DateTimeKind.Local).AddTicks(2135),
+                            DateofBirth = new DateTime(2023, 7, 16, 6, 57, 25, 187, DateTimeKind.Local).AddTicks(5153),
                             DepartmentID = 1,
                             Email = "Samikshya2@gmail.com",
                             FirstName = "samikshya2",
@@ -129,7 +132,7 @@ namespace EmployeeDepartmentAPI.Migrations
                         new
                         {
                             EmployeeID = 1113,
-                            DateofBirth = new DateTime(2023, 7, 16, 7, 2, 29, 55, DateTimeKind.Local).AddTicks(2156),
+                            DateofBirth = new DateTime(2023, 7, 16, 6, 57, 25, 187, DateTimeKind.Local).AddTicks(5165),
                             DepartmentID = 2,
                             Email = "Samikshya3@gmail.com",
                             FirstName = "samikshya3",
@@ -140,7 +143,7 @@ namespace EmployeeDepartmentAPI.Migrations
                         new
                         {
                             EmployeeID = 1114,
-                            DateofBirth = new DateTime(2023, 7, 16, 7, 2, 29, 55, DateTimeKind.Local).AddTicks(2174),
+                            DateofBirth = new DateTime(2023, 7, 16, 6, 57, 25, 187, DateTimeKind.Local).AddTicks(5177),
                             DepartmentID = 3,
                             Email = "Samikshya4@gmail.com",
                             FirstName = "samikshya3",
@@ -151,7 +154,7 @@ namespace EmployeeDepartmentAPI.Migrations
                         new
                         {
                             EmployeeID = 1115,
-                            DateofBirth = new DateTime(2023, 7, 16, 7, 2, 29, 55, DateTimeKind.Local).AddTicks(2191),
+                            DateofBirth = new DateTime(2023, 7, 16, 6, 57, 25, 187, DateTimeKind.Local).AddTicks(5188),
                             DepartmentID = 4,
                             Email = "Samikshya5@gmail.com",
                             FirstName = "samikshya3",

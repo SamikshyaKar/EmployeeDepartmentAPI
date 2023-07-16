@@ -12,8 +12,9 @@ namespace EmployeeDepartmentAPI.Models
         [MaxLength(10, ErrorMessage = "Last Name Requires at max 10 characters")]
         [MinLength(2, ErrorMessage = "Last Name Requires at Least 2 characters")]
         public string Lastname { get; set; } = string.Empty;
-        public Gender Gender { get; set; }
+        public Gender Gender { get; set; }=Gender.Female;
         public string Photopath { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
         public DateTime DateofBirth { get; set; }
         public Department Department { get; set; }
        

@@ -24,7 +24,7 @@ namespace EmployeeDepartmentAPI.Models
 
             modelBuilder.Entity<Employee>().HasData(new Employee { DateofBirth = DateTime.Now,
             DepartmentID =1,EmployeeID=1111,FirstName="samikshya1",Lastname="Kar",Gender=Gender.Female,
-            Photopath= "Img/Flower1.jpg"
+            Photopath= "Img/Flower1.jpg",Email="samikshya1@gmail.com"
 
             });
             modelBuilder.Entity<Employee>().HasData(new Employee
@@ -35,7 +35,8 @@ namespace EmployeeDepartmentAPI.Models
                 FirstName = "samikshya2",
                 Lastname = "Kar",
                 Gender = Gender.Female,
-                Photopath= "Img/Flower1.jpg"
+                Photopath= "Img/Flower1.jpg",
+                Email="Samikshya2@gmail.com"
 
             });
 
@@ -47,7 +48,32 @@ namespace EmployeeDepartmentAPI.Models
                 FirstName = "samikshya3",
                 Lastname = "Kar",
                 Gender = Gender.Male,
-                Photopath= "Img/Flower2.jpg"
+                Photopath= "Img/Flower2.jpg",
+                Email = "Samikshya3@gmail.com"
+
+            });
+            modelBuilder.Entity<Employee>().HasData(new Employee
+            {
+                DateofBirth = DateTime.Now,
+                DepartmentID = 3,
+                EmployeeID = 1114,
+                FirstName = "samikshya3",
+                Lastname = "Kar",
+                Gender = Gender.Male,
+                Photopath = "Img/Flower2.jpg",
+                Email = "Samikshya4@gmail.com"
+
+            });
+            modelBuilder.Entity<Employee>().HasData(new Employee
+            {
+                DateofBirth = DateTime.Now,
+                DepartmentID = 4,
+                EmployeeID = 1115,
+                FirstName = "samikshya3",
+                Lastname = "Kar",
+                Gender = Gender.Male,
+                Photopath = "Img/Flower2.jpg",
+                Email = "Samikshya5@gmail.com"
 
             });
         }

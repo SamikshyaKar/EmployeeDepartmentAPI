@@ -4,6 +4,7 @@ using EmployeeDepartmentAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeDepartmentAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230716005635_Third")]
+    partial class Third
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,7 +80,6 @@ namespace EmployeeDepartmentAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
@@ -107,9 +109,9 @@ namespace EmployeeDepartmentAPI.Migrations
                         new
                         {
                             EmployeeID = 1111,
-                            DateofBirth = new DateTime(2023, 7, 16, 7, 2, 29, 55, DateTimeKind.Local).AddTicks(2094),
+                            DateofBirth = new DateTime(2023, 7, 16, 6, 26, 35, 350, DateTimeKind.Local).AddTicks(8328),
                             DepartmentID = 1,
-                            Email = "samikshya1@gmail.com",
+                            Email = "",
                             FirstName = "samikshya1",
                             Gender = 1,
                             Lastname = "Kar",
@@ -118,9 +120,9 @@ namespace EmployeeDepartmentAPI.Migrations
                         new
                         {
                             EmployeeID = 1112,
-                            DateofBirth = new DateTime(2023, 7, 16, 7, 2, 29, 55, DateTimeKind.Local).AddTicks(2135),
+                            DateofBirth = new DateTime(2023, 7, 16, 6, 26, 35, 350, DateTimeKind.Local).AddTicks(8348),
                             DepartmentID = 1,
-                            Email = "Samikshya2@gmail.com",
+                            Email = "",
                             FirstName = "samikshya2",
                             Gender = 1,
                             Lastname = "Kar",
@@ -129,31 +131,9 @@ namespace EmployeeDepartmentAPI.Migrations
                         new
                         {
                             EmployeeID = 1113,
-                            DateofBirth = new DateTime(2023, 7, 16, 7, 2, 29, 55, DateTimeKind.Local).AddTicks(2156),
+                            DateofBirth = new DateTime(2023, 7, 16, 6, 26, 35, 350, DateTimeKind.Local).AddTicks(8355),
                             DepartmentID = 2,
-                            Email = "Samikshya3@gmail.com",
-                            FirstName = "samikshya3",
-                            Gender = 0,
-                            Lastname = "Kar",
-                            Photopath = "Img/Flower2.jpg"
-                        },
-                        new
-                        {
-                            EmployeeID = 1114,
-                            DateofBirth = new DateTime(2023, 7, 16, 7, 2, 29, 55, DateTimeKind.Local).AddTicks(2174),
-                            DepartmentID = 3,
-                            Email = "Samikshya4@gmail.com",
-                            FirstName = "samikshya3",
-                            Gender = 0,
-                            Lastname = "Kar",
-                            Photopath = "Img/Flower2.jpg"
-                        },
-                        new
-                        {
-                            EmployeeID = 1115,
-                            DateofBirth = new DateTime(2023, 7, 16, 7, 2, 29, 55, DateTimeKind.Local).AddTicks(2191),
-                            DepartmentID = 4,
-                            Email = "Samikshya5@gmail.com",
+                            Email = "",
                             FirstName = "samikshya3",
                             Gender = 0,
                             Lastname = "Kar",

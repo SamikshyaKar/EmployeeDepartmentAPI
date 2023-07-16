@@ -56,7 +56,7 @@ namespace EmployeeDepartmentAPI.Controllers
 
                 var result = await employeeRepository.GetEmployeeById(id);
 
-                if(result != null) return Ok(result);
+                if (result != null) return Ok(result);
 
                 else
                 {
@@ -79,7 +79,7 @@ namespace EmployeeDepartmentAPI.Controllers
 
                 var result = await employeeRepository.GetEmployeeById(empid);
 
-               if(result == null) return NotFound();
+                if (result == null) return NotFound();
                 return result;
             }
             catch (Exception)
@@ -95,11 +95,19 @@ namespace EmployeeDepartmentAPI.Controllers
         {
             try
             {
-                if(employee == null)
+                if (employee == null)
                     return BadRequest();
+                Employee? emp = await employeeRepository.GetEmployeeByEmail(employee.Email);
+                if (emp != null)
+                {
+                    ModelState.AddModelError("Email", "Employee is already in Use");
+                    return BadRequest(ModelState);
+
+                }
                 var result = await employeeRepository.CreateEmployee(employee);
 
-                return CreatedAtAction(nameof(GetEmployeeByEmpID), new { id =result.EmployeeID},result);
+
+                return CreatedAtAction(nameof(GetEmployeeByEmpID), new { id = result.EmployeeID }, result);
 
 
             }
@@ -117,21 +125,45 @@ namespace EmployeeDepartmentAPI.Controllers
 
             try
             {
-                var deletedemployee= await employeeRepository.GetEmployeeById(id);
-                if(deletedemployee == null) return NotFound($"Employee with ID= {id} not found");
-               
-                     await employeeRepository.DeleteEmployee(id);
+                var deletedemployee = await employeeRepository.GetEmployeeById(id);
+                if (deletedemployee == null) return NotFound($"Employee with ID= {id} not found");
+
+                await employeeRepository.DeleteEmployee(id);
                 return Ok($"Employee with ID={id} is deleted successfully");
-                     
-               
+
+
 
             }
             catch (Exception)
             {
 
-                return StatusCode(StatusCodes.Status500InternalServerError,"Error in deleting employee");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error in deleting employee");
             }
         }
+
+
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult<Employee>> UpdateEmployee(int id, Employee employee)
+        {
+            try
+            {
+                if (id != employee.EmployeeID)
+                {
+                    return BadRequest("Employee ID mismatch");
+                }
+                var employeetobeUpdated = await employeeRepository.GetEmployeeById(id);
+                if (employeetobeUpdated == null) return NotFound($"Employee with ID={id} not found");
+
+                return await employeeRepository.UpdateEmployee(employee);
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error in updating Employee");
+            }
+        }
+
+
 
 
     }
