@@ -2,7 +2,7 @@
 
 mongo connection 
 
-[23-03 10:50] Samikshya Kar
+
 
 
 {
@@ -19,7 +19,7 @@ mongo connection
 
       "ConnectionString": "mongodb://localhost:27017",
 
-      "DatabaseName": "IMSTenantService"
+      "DatabaseName": "Myownservice1"
 
     }
 
@@ -30,7 +30,7 @@ mongo connection
 
 
 
-[23-03 10:51] Samikshya Kar
+
 
 
 {
@@ -47,7 +47,7 @@ mongo connection
 
       "ConnectionString": "mongodb://localhost:27017",
 
-      "DatabaseName": "IMSIdentityStoreService"
+      "DatabaseName": "Myownservice2"
 
     }
 
